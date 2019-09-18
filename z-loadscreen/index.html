@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <script>
+  window.onload = function() {
+    var context = new AudioContext();
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <title>SOTG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="keks.css" />
+  <link type ="text/css" rel ="stylesheet" href ="css/icomoon.css"/>
+  <link type ="text/css" rel ="stylesheet" href ="css/index.css"/>
+  <link type ="text/css" rel ="stylesheet" href ="css/colors.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- remember, jQuery is completely optional -->
+  <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
+  <script type='text/javascript' src='jquery.particleground.js'></script>
+  <script type='text/javascript' src='demo.js'></script>
+  
+</head>
+<body>
+
+  <div id="particles"></div>
+  <img id="background"/>
+  <img id="background2"/>
+  <div id="intro">
+    <div><img src='Logo.png' style='width:300px;heigth:300px'></div>
+    <hr style='width:300px'>
+
+    <div> <font face='Montserrat' size='15px'>Sin Frontera RP</font></div>
+
+    <div>
+      <p class='loading'>Conectando</p>
+    </div>
+
+    <div>
+      <img src='Discord.png' style='width:70px;height:17px'>
+    </div>
+
+    <div>                
+      <font face='Montserrat' size="3px">discord.gg/cuKQqW8</font>
+    </div>
+    <div class="container1">
+      <div id="prev-button" class="icon-button icon-previous2" onclick="OnPrevClick()"></div>
+      <div id="play-button" class="icon-button icon-pause2" onclick="OnPlayClick()"></div>
+      <div id="skip-button" class="icon-button icon-next2" onclick="OnSkipClick()"></div>
+      <input style="z-index: 1111;" type="range" min="1" max="100" id="volumeSlider">
+    </div>
+    <br>
+    <div id="music-info"><p id="now-playing">Escuchando: n.a.</p></div>
+  </div>
+  <div id="player"></div>
+  <img id="cursor" src="cursor.png"/>
+<!--music control-->
+<script src="js/index.js"></script>
+<script src="js/synn.js"></script>    
+<script src="js/config.js"></script>
+<script src="js/logger.js"></script>    
+<script src="js/progressbar-main.js"></script>
+<script src="js/progressbar-handler.js"></script>
+<script src="js/progressbar-renderer.js"></script>
+<script src="js/music-handler.js"></script>
+<script src="js/music-controls.js"></script>
+<script src="js/background-handler.js"></script>
+
+
+<style>
+@font-face 
+{
+  font-family: gravity;
+  src: url(../fonts/gravity.otf);
+}
+
+@keyframes slideright {
+  0%   {margin-left:0px}
+  100% {margin-left:110% }
+}
+@keyframes spin {
+  from {transform:rotate(0deg); opacity:0.3; width:100%;height: 100%}
+  to {transform:rotate(3600deg); opacity:0;width:10%;height:10%}
+}
+@keyframes browse {
+  from {margin-left: 0%;transform:rotate(0deg); opacity:0.3; width:100%;height: 100%}
+  to {margin-left: 110%;transform:rotate(90deg); opacity:0;width:10%;height:10%}
+}
+
+@keyframes zoomin {
+  0% {width:100%;height: 100%; opacity: 0.3}
+  50% {width: 300%;height: 300%;opacity: 0}
+  100% {width:100%;height: 100%;opacity:0.3}
+}
+
+body
+{
+  overflow: hidden;
+  background-color: rgb(30,30,30);
+  box-shadow: 0 0 500px rgba(0,1,1,1) inset;
+  background-color: rgb(30,30,30);
+  margin: 0;
+}
+
+#background
+{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  opacity: 0.3;
+  transition: opacity 1s; 
+}
+#background2 {
+  opacity:0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity:0;
+  transition: opacity 1s; 
+}
+.slideright 
+{
+  animation-name: slideright;
+  animation-duration: 3.2s;
+}
+.spin {
+  top: 0px !important;
+  left: 0px !important;
+  -o-transform: unset !important;
+  -ms-transform: unset !important;
+  -moz-transform: unset !important;
+  -webkit-transform: unset !important;
+  transform: unset !important;
+  animation-name: spin;
+  animation-duration: 3s; 
+}
+.browse {
+
+
+  top: 0px !important;
+  left: 0px !important;
+  -o-transform: unset !important;
+  -ms-transform: unset !important;
+  -moz-transform: unset !important;
+  -webkit-transform: unset !important;
+  transform: unset !important;
+  animation-name: browse;
+  animation-duration: 3s;
+
+
+}
+.zoomin
+{
+
+  animation-name: zoomin;
+  animation-duration: 4.2s;
+  justify-content: center;
+
+
+}
+
+*
+{
+  font-family: gravity;
+  color: rgb(255,255,255);  
+
+  animation-name: hammer;
+  animation-duration: 10s;
+}
+
+#logo
+{
+  max-width: 1024;
+  max-height: 1024;
+
+  display: block;
+  margin: auto;
+}
+
+.content-container
+{
+  display: block;
+  margin: auto;
+
+  width: 60%;
+}
+
+/*
+    Progressbar styling.
+    */
+    progress
+    {
+      margin-top: 5px;
+    }
+
+    progress[value] 
+    {
+     -webkit-appearance: none;
+     appearance: none;
+
+     width: 100%;
+     height: 30px;
+   }
+
+   progress[value]::-webkit-progress-bar
+   {
+    background-color: rgb(60,60,60);
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  progress::-webkit-progress-value
+  {
+    animation-name: example;
+    animation-duration: 10s;
+    animation-play-state: running;
+    border-radius: 20px;
+    background-size: 60px 30px, 100% 100%, 100% 100%;
+  }
+
+  .pbCollapse
+  {
+    width: 24.63% !important
+
+  }
+
+/*
+    General purpose classes.
+    */
+    .stick-to-right
+    {
+      float:right;
+    }
+
+    .hide 
+    {
+      display: none;
+    }
+
+    .loading-text
+    {
+      display: inline-block;
+    }
+
+/*
+    Messages styling + fade in and fadeout animations
+    */
+    #message 
+    {
+      opacity:1;
+      transition: opacity 0.3s; 
+    }
+
+/*
+    Music player styling.
+    */
+    #music-info
+    {
+      padding:20px;
+    }
+
+    #player
+    {
+      display: none;
+    }
+
+    #now-playing
+    {
+      font-size: 0.9em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .icon-button
+    {
+      float:left;
+      color:white;
+      font-size: 24px;
+      display: inline-block;
+      padding-top: 10px;
+    z-index: 1001;
+    }
+
+    #volumeSlider
+    {
+      display: inline-block;
+      text-align:center;
+      float:left;
+      width: 200px;
+      height: 15px;
+      -webkit-appearance: none;
+      background: rgba(255,255,255,0.1);
+      outline: none;
+      margin-top: 15px;
+      margin-left: 10px
+    z-index: 1001;
+    position:relative
+    }
+
+    #volumeSlider::-webkit-slider-thumb 
+    {
+    position:relative
+    z-index: 1001;
+      -webkit-appearance: none;
+      width: 10px;
+      height: 25px;
+      background: white;
+    }
+    #cursor {
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      z-index: 1000;
+    }
+    .container1 {
+    display: flow-root;
+    margin: auto;
+    width: 20%;
+    }
+    .container1 > div {
+    flex: 1;
+    display: inline-block;
+    float: left;
+
+    z-index: 1001;
+    position:relative
+    }
+.center {
+  margin: auto;
+  width: 20%;
+}
+    </style>
+    <script src="cursor.js"></script>
+  </body>
+  </html>

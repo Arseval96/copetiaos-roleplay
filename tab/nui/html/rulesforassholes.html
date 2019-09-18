@@ -1,0 +1,822 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Ruluko);
+    @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+    [class*="fontawesome-"]:before {
+      font-family: 'FontAwesome', sans-serif;
+    }
+
+    * {
+      font-size: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 100%;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      background: rgb(137, 193, 223);
+    }
+
+    body {
+      font-family: 'Ruluko', sans-serif;
+      font-size: 16px;
+      width: 100%;
+      margin: 0 auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    body header {
+      top: 0;
+      margin: 0;
+      height: 4rem;
+      background: dodgerblue;
+      text-shadow: 0.5px 0.5px black;
+      box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+      -webkit-transition: all 0.7s ease;
+      transition: all 0.7s ease;
+      z-index: 1;
+    }
+
+    body header h1 {
+      margin-left: 1.5rem;
+      color: whitesmoke;
+      line-height: 1rem;
+    }
+
+    body header h1 span {
+      float: right;
+      margin-right: 2rem;
+      font-size: 3rem;
+      line-height: 2rem;
+      cursor: pointer;
+    }
+
+    body h2 {
+      font-size: 1.75em;
+    }
+
+    main {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+    }
+
+    main .sidebar {
+      background: dodgerblue;
+      min-width: 180px;
+      max-width: 250px;
+      margin-bottom: 0;
+      color: whitesmoke;
+      text-shadow: 1px 1px #0d0d0d;
+      overflow: auto;
+      height: 600px;
+    }
+
+    main .sidebar ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    main .sidebar li {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border-bottom: 2px solid #2F2F2F;
+    }
+
+    main .sidebar li:hover {
+      border-right: .5rem solid #81A4D4;
+      box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.4);
+    }
+
+    main .sidebar a {
+      color: whitesmoke;
+      display: block;
+      padding: 1.5em .2em;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.2em;
+      -webkit-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+
+    main .sidebar a:before {
+      content: "SideBar";
+    }
+
+    main .sidebar a:hover {
+      color: #81A4D4;
+      margin-left: 1rem;
+    }
+
+    body>header {
+      height: 9rem;
+    }
+
+    body>header h1 {
+      line-height: 2rem;
+    }
+
+    body>header h1 span {
+      line-height: 8rem;
+    }
+
+    main {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    main .sidebar {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+
+    main .sidebar ul li {
+      margin: 0;
+      list-style-type: none;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    main .sidebar ul li:last-child {
+      border-bottom: none;
+    }
+
+    main li {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    main .sidebar a:before {
+      content: "";
+    }
+
+    #all-content {
+      flex: 1;
+    }
+
+    .info {
+      background-color: #294860;
+      border-radius: 20px;
+      /* The border-radius gives rounded corners.*/
+      color: white;
+      padding: 10px;
+      margin: 10px auto;
+    }
+
+    h2 {
+      margin: 10px;
+    }
+
+    .info {
+      background-color: #DFEAF1;
+      padding: 4px;
+      margin: 10px;
+      border-radius: 4px;
+      color: black;
+    }
+
+    .info-title {
+      font-size: 3em;
+      margin: 8px;
+      text-align: center;
+      color: #294860;
+    }
+
+    .info-description {
+      font-weight: lighter;
+      /* this makes the font a bit less dark */
+      font-size: 1.3em;
+      margin: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🍺Copetiaos Roleplay🍺 Reglas y Pautas</h1>
+  </header>
+  <main>
+    <div class="sidebar">
+      <div class="TOC">
+        <h1>Tabla de Contenidos</h1>
+        <!-- Below this is a <ol> element. "ol" stands for "ordered list." -->
+        <ol>
+          <!-- <li> means "list item" -->
+          <li>
+            <a href="#info-1">Lista</a>
+            <!-- Next I add an "unordered list" within the "list item" of my "ordered list" -->
+            <ul>
+              <li>
+                <a href="#info-1-1">1. Para Empezar</a>
+              </li>
+              <li>
+                <a href="#info-1-2">2. Nombre del Personaje </a>
+              </li>
+              <li>
+                <a href="#info-1-3">3. In Character o mejor conocido como Dentro de Personaje(IC)</a>
+              </li>
+              <li>
+                <a href="#info-1-4">4. Out Of Character o mejor conocido como Fuera de Personaje(OOC) </a>
+              </li>
+              <li>
+                <a href="#info-1-5">5. MetaGaming(MG)</a>
+              </li>
+              <li>
+                <a href="#info-1-6">6. BunnyJump(BJ)</a>
+              </li>
+              <li>
+                <a href="#info-1-7">7. Rol de Entorno(RDE)</a>
+              </li>
+              <li>
+                <a href="#info-1-8">8. PlayerKill(PK)</a>
+              </li>
+              <li>
+                <a href="#info-1-9">9. RevengeKill(RK)</a>
+              </li>
+              <li>
+                <a href="#info-1-10">10. CharacterKill(CK) </a>
+              </li>
+              <li>
+                <a href="#info-1-11">11. DeathMatch(DM)</a>
+              </li>
+              <li>
+                <a href="#info-1-12">12. PowerGaming(PG)</a>
+              </li>
+              <li>
+                <a href="#info-1-13">13. AFK</a>
+              </li>
+              <li>
+                <a href="#info-1-14">14. Normas Gnenerales</a>
+              </li>
+              <li>
+                <a href="#info-1-15">15. Reportes</a>
+              </li>
+              <li>
+                <a href="#info-1-16">16. Reanimación cardiopulmonar(RCP)</a>
+              </li>
+              <li>
+                <a href="#info-1-17">17. Estado de coma</a>
+              </li>
+              <li>
+                <a href="#info-1-18">18. Muerte a manos de un policía/a>
+              </li>
+              <li>
+                <a href="#info-1-19">19. Uso de vehículos estatales</a>
+              </li>
+              <li>
+                <a href="#info-1-20">20. Llamadas a los servicios</a>
+              </li>
+              <li>
+                <a href="#info-1-21">21. Limite de cuentas y personajes</a>
+              </li>
+              <li>
+                <a href="#info-1-22">22. Cambio de nombre</a>
+              </li>
+              <li>
+                <a href="#info-1-23">23. Anuncios</a>
+              </li>
+              <li>
+                <a href="#info-1-24">24. Comandos (/do y /me)</a>
+              </li>
+              <li>
+                <a href="#info-1-25">25. Empleos Legales</a>
+              </li>
+              <li>
+                <a href="#info-1-26">26. Uso de los chat de texto y voz</a>
+              </li>
+              <li>
+                <a href="#info-1-27">27. Robos a otros jugadores</a>
+              </li>
+              <li>
+                <a href="#info-1-28">28. Secuestros</a>
+              </li>
+              <li>
+                <a href="#info-1-29">29. Zonas Seguras</a>
+              </li>
+              <li>
+                <a href="#info-1-30">30. Policías Corruptos</a>
+              </li>
+			  <li>
+                <a href="#info-1-31">31. Médicos</a>
+              </li>
+			  <li>
+                <a href="#info-1-32">32. Actividades ilegales</a>
+              </li>
+			  <li>
+                <a href="#info-1-33">33. Material medico</a>
+              </li>
+			  <li>
+                <a href="#info-1-34">34. Prioridad de atención medica</a>
+              </li>
+			  <li>
+                <a href="#info-1-35">35. Robos a Bancos</a>
+              </li>
+			  <li>
+                <a href="#info-1-36">36. Negociaciones</a>
+              </li>
+			  <li>
+                <a href="#info-1-37">37. Sistema de Sanciones Administrativas</a>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div id="all-content">
+      <h1>Reglas y Pautas</h1>
+      <p>
+        Aqui las Reglas y Pautas para el servidor Copetiaos.
+      </p>
+      <div class="info">
+        <h2 id="info-1">Explicaciones</h2>
+        <div class="info" id="info-1-1">
+          <div class="info-title">
+            1. Para Empezar
+          </div>
+          <div class="info-description">
+            <p>
+              Comencemos por lo básico, al crear un Rol para tu personaje tienes que ceñirte a el, esta es la principal norma de un servidor Roleplay, si creas un personaje imaginario tienes que actuar siempre pensando como actuarias o resolverías ciertas situaciones en la vida Real, dicho esto a continuación se nombrara algunas reglas, "Ojo" no serán todas ya que si hiciéramos esto demorarían horas leyendo cada una de estas.
+
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="info" id="info-1-2">
+        <div class="info-title">
+          2. Nombre del Personaje:
+
+        </div>
+        <div class="info-description">
+          <p>
+            El personaje con el cual rolearemos deberá de respetar el formato de Nombre Apellido y no se podrán usar nombres de famosos ni nombres con fines divertidos/trolls para nuestro personaje. En caso de no respetarse esta norma puede ser obligado a cambiar su Nombre o incluso la total eliminación de su personaje sin importar lo que tuviera en el inventario, esto dependerá del criterio del Administrador.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-3">
+        <div class="info-title">
+          3. In Character o mejor conocido como Dentro de Personaje(IC)
+        </div>
+        <div class="info-description">
+          <p>
+            Todo aquello que ocurre a manos de nuestro personaje o entorno de la ciudad donde se encuentra, es decir, dentro del servidor de juego.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-4">
+        <div class="info-title">
+          4. Out Of Character o mejor conocido como Fuera de Personaje(OOC)
+        </div>
+        <div class="info-description">
+          <p>
+            Todas las acciones que ocurren, se hablan o realizan de forma ajena a nuestro personaje y por tanto, fuera del juego.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-5">
+        <div class="info-title">
+          5. MetaGaming(MG)
+        </div>
+        <div class="info-description">
+          <p>
+            El MG se produce cuando se usa cualquier tipo de información de fuera del juego dentro del juego, sea de forma intencionada o por error para obtener beneficio. Un ejemplo de esto seria estar conversando en discord con un amigo y darle tu ubicación para que te ayude dentro del juego, esto esta rotundamente prohibido y en caso de ser descubierto sera penalizado.
+
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-6">
+        <div class="info-title">
+          6. BunnyJump(BJ)
+        </div>
+        <div class="info-description">
+          <p>
+            Cuando vamos dando saltos hasta un lugar con el propósito de llegar mas rápido.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-7">
+        <div class="info-title">
+          7. Rol de Entorno(RDE)
+        </div>
+        <div class="info-description">
+          <p>Debemos tener en cuenta que la ciudad dentro del juego es como una ciudad en la vida real, es decir, que puede haber ciudadanos viendo lo que hacemos en sitios públicos, que nos pueden reconocer si llevamos la cara al descubierto, que hay cámaras en establecimientos, etc. Actúa teniendo siempre en cuenta esto.</p>
+			
+			<p>El rol de entorno es todo aquello que nos rodea y lo tenemos que simular a través de nuestra mente e interpretación. Recuerden, en la tienda de comida hay cámaras y si un policía hace uso de estas estaremos obligados a decir la verdad de lo que ha pasado.</p>
+			
+			<p>No esta permitido rolear llevar ningún tipo de cámara "gopro" incorporada en el cuerpo que aparecen mágicamente en situaciones criticas, así como tampoco GPS, localizadores, controlador de signos vitales o cualquier objeto similar para beneficiarnos en el rol. </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-8">
+        <div class="info-title">
+          8. PlayerKill(PK)
+        </div>
+        <div class="info-description">
+          <p>
+            Cuando tu personaje queda en coma y eres reanimado por un medico, conlleva una perdida de memoria que debe rolearse por lo que no podras acordarte de quien o que, como, cuando, donde ni nada relacionado con tu muerte de forma IC. Todo aquello vivido, sabido y visto que nos relacione con el motivo de este PK, sera olvidado.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-9">
+        <div class="info-title">
+          9. RevengeKill(RK)
+        </div>
+        <div class="info-description">
+          <p>
+            Cuando un jugador hace caso omiso al rol de perdida de memoria explicado anteriormente y acude al lugar donde ha muerto a tomar represalias contra su asesino.
+
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-10">
+        <div class="info-title">
+          10. CharacterKill(CK)
+        </div>
+        <div class="info-description">
+          <p>Muerte de tu personaje, recuerden que al morir comienzan desde 0, deben rolear totalmente un nuevo Personaje. En el caso de no haber SAMU conectado esto no es valido</p>
+			<p><b>Tipos de CK</b></p>
+			<p>-Bandas: Se podrá realizar un CK a cualquier miembro de banda si hay una investigación detrás que acredite junto con las pruebas IC de que esa banda/mafia es peligrosa.</p>
+
+			<p>-Civiles: Se prohíbe a los civiles por interpretación de personaje matar policías sin un motivo contundente de peso en el cual pueda ver en peligro su vida o pudiera torcer su rol entero, para solicitar evitar el ck al matar a un policía se deberá argumentar una historia de rol coherente donde fuera imperiosamente necesario matar al policía.</p>
+
+			<p>Se realizara un CK policial a los civiles que se les detenga con un gran numero de droga encima y en caso de que el sujeto sea reincidente, claro en casos de que este no colabore con el arresto.</p>
+
+			<p><b>Salida de una banda o mafia</b></p>
+			<p>Tu personaje quiere abandonar una banda y esta para asegurar tu silencio, para que no hables de ellos de manera IC, deciden matarte. Esta norma suele estar estipulada en las normas de cada banda/mafia. Es decisión de ellos si dejarte o no con vida.</p>
+			
+			<p><b>Fallar a tu banda/mafia</b></p>
+			<p>Una banda/mafia ilegal organizada podrá aplicar un CK a tu propio personaje en caso de que tu lo hayas hecho mal. Da igual tu criterio aquí, si el jefe decide cortar tu cabeza por X motivos, tu personaje morirá. Trata de no meter la pata.</p>
+
+			<p><b>Guerra de bandas(CK´S pactados anteriormente)</p></b>
+			<p>En caso de que explote una guerra de bandas y estas acuerden que en el ultimo día quien muera, pueda sufrir un CK podrán realizarse siempre y cuando se haya pactado estas condiciones previamente al inicio de la guerra de bandas.</p>
+
+			<p><b>Banda/Mafia a policía</p></b>
+			<p>Se podrá realizar un CK por parte de una banda oficial del servidor o mafia a un policía siempre y cuando hayan motivos de peso y una investigación detrás. La única excepción es que solamente se podrá realizar a ciertos rangos de la policía que engloban desde Cabo hasta Mayor.</p>
+
+			<p><b>Banda/Mafia a civiles</p></b>
+			<p>Se podrá realizar CK por parte de una organización criminal a civiles siempre y cuando haya un rol detrás. Tiene que haber motivos de peso y que este civil, comprometa los intereses de la banda.</p>
+        </div>
+      </div>
+      <div class="info" id="info-1-11">
+        <div class="info-title">
+          11. DeathMatch(DM)
+        </div>
+        <div class="info-description">
+          <p>
+            Jugador que se dedica a agredir o matar al resto de jugadores sin motivo aparente o previo.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-12">
+        <div class="info-title">
+          12. PowerGaming(PG)
+        </div>
+        <div class="info-description">
+			<p>-Al estar en un videojuego podemos hacer cosas que en la vida real no podrían hacerse, ya sea porque no tienen sentido ni lógica directamente porque seria imposible. PowerGaming engloba también el forzar el rol del otro jugador sin darle la posibilidad a reaccionar tras una acción tuya.</p>
+			
+			<p>-Provocar a la policía de manera reiterada con el único objetivo de que nos persiga porque nos aburrimos sin ningún objetivo de rol no esta permitido.</p>
+
+			<p>-Queda totalmente prohibido amputar miembros del cuerpo, ya que se considera PG. Esto abarca desde Brazos/piernas/lenguas y demás.</p>
+        </div>
+      </div>
+      <div class="info" id="info-1-13">
+        <div class="info-title">
+          13. AFK
+        </div>
+        <div class="info-description">
+            <p>Una persona esta AFK cuando permanece inmóvil dentro del servidor debido a que no se encuentra frente al ordenador. Recuerda que, si tu personaje queda afk en una zona no segura, podrá sufrir actos ilícitos de otros jugadores.</p>
+
+			<p>Si vas a estar AFK rolea esto, un simple ejemplo puede ser usar una animación para recostarte en la cama de tu casa, usa la lógica para esto, no te vas a quedar AFK en medio de la calle, aun con lo anterior nombrado no esta permitido estar mas de 15 minutos AFK.</p>
+        </div>
+      </div>
+      <div class="info" id="info-1-14">
+        <div class="info-title">
+          14. Normas Generales
+        </div>
+        <div class="info-description">
+			<p><b>Valorar tu vida</p></b>
+					<p>-La norma mas importante IC, tendrás que buscar siempre la supervivencia de tu personaje por encima de cualquier otra cosa.</p>
+					<p>-El suicidio podrá realizarse dentro de un rol y tendrá como consecuencia la muerte total de tu personaje y algunos de sus bienes.</p>
+			<p><b>Evasión de Rol</p></b>
+					<p>-Cuando evitamos rolear de forma intencionada con alguien o cuando nos desconectamos con el fin de evitar el rol se considera evasión de rol. Esta prohibido y se considera una falta grave.</p>
+					<p>-En caso de problemas de Internet o desconexion por fuerza mayor se deberá continuar el rol inmediatamente al re conectarse o si no puedes por algún motivo deberás comunicarlo al Staff.</p>
+			<p><b>Interpretación del personaje</p></b>
+					<p>-Cuando juegues con tu personaje debes tener en cuenta en todo momento su historia. Tu forma de actuar con otros jugadores y entorno deberá estar de acuerdo a estos principios que con anterioridad tu mismo has establecido para tu personaje. No se podrá hacer cambios bruscos sin una evolución o motivo de peso.</p>
+					<p>-Hay que intentar meternos en la piel de nuestro personaje, por eso deberemos de tener muy claro antes de crearnos nuestro personaje, como actuaríamos en la vida real en relación a lo que queremos llevar al servidor de juego.</p>
+					<p>-Recuerda que si tienes un trabajo has de ejercer de ello, no esta permitido coger un trabajo para beneficiarse de un sueldo mayor o para auto abastecerse.</p>
+					<p>-Todo civil podrá traficar con armas siempre y cuando ateniéndose a las consecuencias ingame. El Ck por parte de bandas, mafia y policía podrá aplicarse a este punto.</p>
+			<p><b>Nunca parar un rol</p></b>
+					<p>-Si ves algo reportable, continua el rol y una vez terminado, reporta por los medios para ello, pero nunca se debe parar en medio de un rol a discutir.</p>
+			<p><b>Roles ajenos</p></b>
+					<p>-Se entiende como "rol ajeno" la aparición en escena sin tener nada que ver con lo que esta pasando. Un ejemplo claro seria: Estar hablando con una persona y se acerca un tercero para incorporarse a la conversación sin conocerlos de nada con tonos de confianza.</p>
+			<p><b>Uso de armas o violencia</p></b>
+					<p>-Para hacer uso de un arma o violencia siempre debe haber un rol previo, exceptuando las zonas ilegales o las bandas en sus propias bases.</p>
+					<p>-En caso de amenazar a alguien con un arma siempre debes darle tiempo suficiente para que intente acatar tu petición antes de disparar.</p>
+					<p>-Queda prohibido llevar en inventario armas largas y equiparlas justo cuando vas a hacer uso de ellas. Si se hace un rol que implique uso de armas largas deberán llevarse equipadas desde el comienzo del rol.</p>
+					<p>-El cuerpo policial tiene permitido disparar a matar desde el helicóptero, siempre y cuando hayan recibido fuego previo.</p>
+					<p>-Queda prohibido disparar desde vehículos a jugadores. Si se podrá disparar a otros vehículos(carrocería,motor,ruedas).</p>
+					<p>-Esta totalmente prohibido utilizar el vehículo para usarlo como arma contra jugadores que van a pie o NPCS, pero esta permitido el uso de este, en caso de persecución, de utilizarlo para intentar arrollar o volcar el vehículo del perseguido.</p>
+        </div>
+      </div>
+      <div class="info" id="info-1-15">
+        <div class="info-title">
+          15. Reportes
+        </div>
+        <div class="info-description">
+            <p>-Cualquier situación que Rompa el Rol o casos de programas ilegales, etc tendrá que ser reportado por el momento en una sección del Discord "🚨┇reportes". Próximamente se podrá reportar en el Foro.</p>
+			<p>-Recordar siempre tener alguna imagen o vídeo para respaldar su reporte, no se tomara en consideración reportes sin un respaldo.</p>
+        </div>
+      </div>
+      <div class="info" id="info-1-16">
+        <div class="info-title">
+          16. Reanimación cardiopulmonar(RCP)
+        </div>
+        <div class="info-description">
+          <p>
+            Si eres reanimado por RCP por SAMU no recuerdas nada de lo relacionado con el rol previo a haber quedado en coma a no ser que alguien que haya estado contigo te lo recuerde.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-17">
+        <div class="info-title">
+          17. Estado de coma
+        </div>
+        <div class="info-description">
+          <p>
+            <p>-En estado de coma solamente te podrás comunicar mediante el comando /do con el resto de jugadores para responder acerca del estado de tus heridas.</p>
+			<p>-En estado de coma, si te encuentras solo, únicamente se podrá llamar a los SAMU para ser reanimado. En caso de morir y no hay SAMU conectados tu muerte no sera valida.</p>
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-18">
+        <div class="info-title">
+          18. Muerte a manos de un policía
+        </div>
+        <div class="info-description">
+          <p>
+            Si has sido abatido por un policía, un EMS te hara RCP o en caso de no haber se te llevara al hospital y después de aplicarte las curas necesarias se hará el traslado a comisaria para la posterior detención.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-19">
+        <div class="info-title">
+          19. Uso de vehículos estatales
+        </div>
+        <div class="info-description">
+          <p>
+            Ningún jugador podrá usar los vehículos de emergencia a excepción de que formen parte de dicha facción.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-20">
+        <div class="info-title">
+          20. Llamadas a los servicios
+        </div>
+        <div class="info-description">
+          <p>
+            Queda totalmente prohibido hacer llamadas falsas a todos los servicios públicos, y se ha de rellenar el recuadro con el motivo de la llamada, las llamadas sin texto podrán ser ignoradas.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-21">
+        <div class="info-title">
+          21. Limite de cuentas y personajes
+        </div>
+        <div class="info-description">
+          <p>Solo se te permitirá tener una cuenta en el Servidor. Las multicuentas no están permitidas y solo se podrá tener un único personaje en la cuenta activa. </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-22">
+        <div class="info-title">
+          22. Cambio de nombre
+        </div>
+        <div class="info-description">
+          <p>
+            Los cambios de nombre solo se podrán hacer mediante una solicitud a la administración, en caso de no realizarse su personaje arriesga ser borrado totalmente.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-23">
+        <div class="info-title">
+          23. Anuncios
+        </div>
+        <div class="info-description">
+          <p>
+            Cuando ponemos un anuncio hay que tener en cuenta que lo que publicamos es algo que sale en la prensa o televisión, por lo que tienen que tener una coherencia y estar bien escritos sin faltas de ortografía a poder ser, explicando claramente que es lo que se ofrece o busca, facilitando un medio de contacto si es necesario y se sobreentiende que no podemos ni ofrecer ni buscar servicios ilegales, hay que camuflarlo.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-24">
+        <div class="info-title">
+          24. Comandos (/do y /me)
+        </div>
+        <div class="info-description">
+          <p>
+            En el servidor existen estos dos comandos como herramienta para enriquecer las situaciones de rol que no son de uso obligatorio, pero se recomienda usarlos dado que enriquece mucho los roles  y os ofrece distintas posibilidades.
+          </p>
+        </div>
+      </div>
+      <div class="info" id="info-1-25">
+        <div class="info-title">
+          25. Empleos Legales
+        </div>
+        <div class="info-description">
+          <p>
+            En los trabajos donde se de un vehículo solo se podrá usar este exclusivamente para desempeñar el empleo en cuestión y estará totalmente prohibido usarlos con otros fines.
+          </p>
+        </div>
+      </div>
+	        <div class="info" id="info-1-26">
+        <div class="info-title">
+          26. Uso de los chat de texto y voz
+        </div>
+        <div class="info-description">
+            <p>El chat de ayuda es estrictamente para dudas o para comunicar algo puntualmente a un jugador del que no sepamos la ID y su rol dependa de nosotros.</p>
+
+			<p>El chat OOC es únicamente para aclaraciones de rol, preguntar comandos y dudas, pero nunca y bajo ninguna circunstancia para cortar, opinar, calificar el rol, quejarse o poner en duda la actuación de las personas implicadas y si creemos que la persona con la que hemos estado roleando ha hecho algo mal, hablamos con ella ya sea por mensaje privado o preferiblemente por Discord.</p>
+
+			<p>El chat de voz se usara en todo momento única y exclusivamente para la comunicación IC, si se ha de hablar algo fuera de rol se usa el chat OOC, los mensajes privados o discord. A excepción si algún miembro del staff inicia la conversación.</p>
+        </div>
+      </div>
+	        <div class="info" id="info-1-27">
+        <div class="info-title">
+          27. Robos a otros jugadores
+        </div>
+        <div class="info-description">
+			<p>-Para hacer un robo a otro jugador, deberá de haber un mínimo de 1 policial conectado y de servicio.</p>
+
+			<p>-Si el civil colabora no se le podrá ejecutar al terminar.</p>
+
+			<p>-Para realizar un robo a un jugador que sea policía, deberá de haber +2 policías conectados y de servicio.</p>
+
+			<p>-El farmeo abusivo de armas sin un rol previo de cualquier facción, sera sancionado.</p>
+
+			<p>-No se podrá robar a un policía estando muerto.</p>
+        </div>
+      </div>
+	        <div class="info" id="info-1-28">
+        <div class="info-title">
+          28. Secuestros
+        </div>
+        <div class="info-description">
+            <p>-Para secuestrar a cualquier jugador que no sea policía ni medico se requerirá un mínimo de 1 policía conectado y en caso de ser un policía deberá de haber +2.</p>
+
+			<p>-No se considerara una infracción de la norma de zona segura si el sujeto entra por su propio pie y voluntad en una propiedad ajena(Vehículo o casa).</p>
+
+			<p>-No se podrá robar a un trabajador uniformado en su puesto de trabajo, pero si se le podrá secuestrar.</p>
+
+			<p>-El secuestrador debe formar un plan para pedir un rescate, en un lugar donde la policía no pudiera sorprenderlos, dado que no están obligados a negociar si ven una vía de asalto segura para el rehén.</p>
+
+			<p>-Esta permitido mover un cadáver para esconderlo únicamente con el fin de que no lo encuentren las autoridades o servicios médicos. Se considera ocultación de pruebas y no secuestro.</p>
+        </div>
+      </div>
+	        <div class="info" id="info-1-29">
+        <div class="info-title">
+          29. Zonas Seguras
+        </div>
+        <div class="info-description">
+            <p><b>¿Que es una zona segura?</p></b>
+				<p>-Es un lugar donde no se puede cometer actos delictivos contra otros personajes (robar, secuestrar y nada malo para el personaje), siempre y cuando no exista un rol previo, exceptuando la comisaria principal que siempre es zona segura. Prohibido "Campear" estas zonas.</p>
+        </div>
+      </div>
+	        <div class="info" id="info-1-30">
+        <div class="info-title">
+          30. Policías Corruptos
+        </div>
+        <div class="info-description">
+            <p>Un policía jamas podrá ser corrupto, sin ninguna excepción. Cualquier indicio de corrupción, sera sancionado tanto IC y OOC.</p>
+
+			<p>Refuerzos: En una intervención policial los policías abatidos podrán reincorporarse a la acción solo 1 vez a modo de refuerzos.</p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-31">
+        <div class="info-title">
+          31. Médicos
+        </div>
+        <div class="info-description">
+			<p><b>Asistencia medica</p></b>
+				<p>-Tienen el deber de dar asistencia medica a todos los jugadores del servidor.</p>
+			<p><b>Protección del medico en servicio</p></b>
+				<p>-A los médicos no se les puede robar o secuestrar en ningún caso si están de servicio. Si no están de servicio serán tratados como un civil.</p>
+				<p>-Se podrá matar a un medico siempre y cuando haya mínimo 2 de servicio y cumpla con las normativas generales.</p>
+				<p>-Los médicos no deben olvidar que son personas de carne y hueso que pueden morir en cualquier momento, por lo cual tienen que actuar acorde al entorno, valorando su vida por encima de todo.</p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-32">
+        <div class="info-title">
+          32. Actividades ilegales
+        </div>
+        <div class="info-description">
+			<p>Cuando un medico esta de civil, si se le pilla sera juzgado como un civil mas, ignorando su protección como medico.</p>
+
+			<p>El medico no puede realizar ninguna actividad ilícita estando de servicio.</p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-33">
+        <div class="info-title">
+          33. Material medico
+        </div>
+        <div class="info-description">
+          <p>
+ El material medico del que disponen debe ser únicamente y exclusivamente para realizar su trabajo, no se puede comerciar con estas.
+
+          </p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-34">
+        <div class="info-title">
+          34. Prioridad de atención medica
+        </div>
+        <div class="info-description">
+          <p>
+En caso de conflicto entre policías y delincuentes, el medico siempre tiene que asistir primero a los policías y si estos se encontraran todos abatidos y de los delincuentes quedase al menos 1 vivo, entonces haría caso a los delincuentes. De todos modos, no podrá actuar hasta que termine el conflicto y ya no haya peligro.
+
+          </p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-35">
+        <div class="info-title">
+          35. Robos a Bancos
+        </div>
+        <div class="info-description">
+<p>-Para realizar un robo a banco debe haber mínimo 3 policías de servicio.</p>
+
+<p>-Los ladrones deberán ser miembros de una banda/mafia.</p>
+
+<p>-Las bandas solo podrán realizar un robo cada 12 horas.</p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-36">
+        <div class="info-title">
+          36. Negociaciones
+        </div>
+        <div class="info-description">
+<p>-Siempre que se realice un robo y llegue la policía, uno de los policías debe presentarse como negociador, siendo el encargado en todo momento de comunicarse con los ladrones para escuchar sus exigencias y tratar de conseguir una salida sin violencia al conflicto.</p>
+
+<p>-En el caso de que las negociaciones fallen, se deberá de hacer una cuenta atrás de 30 segundos para que ambos lados se preparen para un posible tiroteo.</p>
+
+<p>-Mientras el rehén colabore no se le puede hacer ningún daño y la banda tendrá que tener en cuenta que es su moneda de cambio, a excepción de la negociación con la policía se rompa.</p>
+
+<p>-No se puede usar como rehén a un cómplice o compañero de banda, ni a uno ficticio utilizando el comando /do.</p>
+        </div>
+      </div>
+	  	        <div class="info" id="info-1-37">
+        <div class="info-title">
+          37. Sistema de Sanciones Administrativas
+        </div>
+        <div class="info-description">
+          <p>
+<p>-El incumplimiento de las normas, faltas de respeto o cualquier tipo de acción que se considere que se ha hecho de mala fe o en contra de los intereses del servidor se sancionara de la siguiente manera:</p>
+
+<p>-Primero con 1 falta, a las 3 faltas se baneara al usuario 1 mes.</p>
+
+<p>-Si después del ban de 1 mes se vuelve a faltar alguna normativa, el ban sera de 2 meses.</p>
+
+<p>-Se eliminara 1 falta en su historial si el usuario no ha recibido ninguna falta en un periodo de 15 días.</p>
+
+<p>Cabe destacar que, según la gravedad de la situación, el administrador podrá poner varias o ninguna falta, y las faltas graves como uso de exploits, cheats o cualquier otro programa que se considere de máxima gravedad, acarreara baneos permanentes.</p>
+
+
+<p><b>Aviso: No buscar vacios legales dentro de las reglas ya que al ser un servidor Roleplay tienes que imaginarte que harias en la vida real en distintas situaciones, no servira decir como excusa "No aparecia esa regla en la seccion de reglas".</p></b>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+</body>
+
+</html>
